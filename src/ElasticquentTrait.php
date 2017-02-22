@@ -1,5 +1,4 @@
 <?php
-
 namespace Elasticquent;
 
 use Exception;
@@ -84,6 +83,8 @@ trait ElasticquentTrait
 
     /**
      * Use Timestamps In Index.
+     *
+     * @param bool $shouldUse
      */
     public function useTimestampsInIndex($shouldUse = true)
     {
@@ -221,7 +222,8 @@ trait ElasticquentTrait
      *
      * @return ElasticquentResultCollection
      */
-    public static function searchByQuery($query = null, $aggregations = null, $sourceFields = null, $limit = null, $offset = null, $sort = null)
+    public static function searchByQuery($query = null, $aggregations = null, $sourceFields = null,
+        $limit = null, $offset = null, $sort = null)
     {
         $instance = new static;
 
@@ -253,7 +255,7 @@ trait ElasticquentTrait
      *
      * Using this method, a custom query can be sent to Elasticsearch.
      *
-     * @param  $params parameters to be passed directly to Elasticsearch
+     * @param  array $params parameters to be passed directly to Elasticsearch
      * @return ElasticquentResultCollection
      */
     public static function complexSearch($params)
@@ -366,7 +368,8 @@ trait ElasticquentTrait
      *
      * @return array
      */
-    public function getBasicEsParams($getIdIfPossible = true, $getSourceIfPossible = false, $getTimestampIfPossible = false, $limit = null, $offset = null)
+    public function getBasicEsParams($getIdIfPossible = true, $getSourceIfPossible = false,
+        $getTimestampIfPossible = false, $limit = null, $offset = null)
     {
         $params = array(
             'index' => $this->getIndexName(),
@@ -432,7 +435,7 @@ trait ElasticquentTrait
     /**
      * Get Mapping
      *
-     * @return void
+     * @return mixed
      */
     public static function getMapping()
     {
@@ -661,7 +664,8 @@ trait ElasticquentTrait
      * @param  \Illuminate\Database\Eloquent\Relations\Relation  $parentRelation
      * @return static
      */
-    public static function newFromBuilderRecursive(Model $model, array $attributes = [], Relation $parentRelation = null)
+    public static function newFromBuilderRecursive(Model $model, array $attributes = [],
+        Relation $parentRelation = null)
     {
         $instance = $model->newInstance([], $exists = true);
 
@@ -710,7 +714,7 @@ trait ElasticquentTrait
             if (method_exists($model, $key)) {
                 $reflection_method = new ReflectionMethod($model, $key);
 
-                if ($reflection_method->class != "Illuminate\Database\Eloquent\Model") {
+                if ($reflection_method->class != 'Illuminate\Database\Eloquent\Model') {
                     $relation = $model->$key();
 
                     if ($relation instanceof Relation) {

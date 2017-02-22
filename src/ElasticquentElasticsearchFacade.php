@@ -1,5 +1,4 @@
 <?php
-
 namespace Elasticquent;
 
 use Illuminate\Support\Facades\Facade;

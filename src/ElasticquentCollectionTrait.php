@@ -1,4 +1,5 @@
-<?php namespace Elasticquent;
+<?php
+namespace Elasticquent;
 
 /**
  * Elasticquent Collection Trait

@@ -1,11 +1,12 @@
-<?php namespace Elasticquent;
+<?php
+namespace Elasticquent;
 
 interface ElasticquentInterface
 {
     /**
      * Get ElasticSearch Client
      *
-     * @return Elasticsearch\Client
+     * @return \Elasticsearch\Client
      */
     public function getElasticSearchClient();
 
@@ -71,6 +72,8 @@ interface ElasticquentInterface
 
     /**
      * Search a Type.
+     *
+     * @param array $query
      */
     public static function search($query = array());
 
