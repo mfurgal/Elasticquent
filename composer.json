@@ -18,9 +18,9 @@
     ],
     "require": {
         "php": ">=5.4.0",
-        "illuminate/database": "^5.4",
-        "illuminate/config": "^5.4",
-        "illuminate/pagination": "^5.4",
+        "illuminate/database": "^5.1",
+        "illuminate/config": "^5.1",
+        "illuminate/pagination": "^5.1",
         "nesbot/carbon": "~1.21",
         "elasticsearch/elasticsearch": "~5.1"
     },
