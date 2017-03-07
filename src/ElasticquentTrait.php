@@ -382,7 +382,7 @@ trait ElasticquentTrait
 
         $fields = $this->buildFieldsParameter($getSourceIfPossible, $getTimestampIfPossible);
         if (!empty($fields)) {
-            $params['fields'] = implode(',', $fields);
+            $params['stored_fields'] = implode(',', $fields);
         }
 
         if (is_numeric($limit)) {
